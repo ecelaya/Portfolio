@@ -1,0 +1,134 @@
+---
+const categories = [
+  {
+    label: "Languages & Programming",
+    skills: ["Python", "SQL", "R"],
+  },
+  {
+    label: "Data Engineering",
+    skills: ["PySpark", "Databricks", "ETL"],
+  },
+  {
+    label: "Reporting & BI",
+    skills: ["Power BI", "Tableau"],
+  },
+  {
+    label: "ML & Statistics",
+    skills: ["Machine Learning", "Regression", "Classification", "Clustering"],
+  },
+  {
+    label: "Tools",
+    skills: ["Git", "Excel"],
+  },
+  {
+    label: "Spoken Languages",
+    skills: ["Spanish (Native)", "English (C1 — IELTS certified)", "French (Intermediate)"],
+  },
+];
+---
+
+<section id="skills" class="section">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-tag">Skills</span>
+      <h2 class="section-title">What I work with</h2>
+    </header>
+
+    <div class="skills-grid">
+      {categories.map((cat) => (
+        <div class="skill-category" data-reveal>
+          <span class="category-label">{cat.label}</span>
+          <div class="skill-chips">
+            {cat.skills.map((s) => <span>{s}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 6rem 1.5rem;
+    border-top: 1px solid rgba(139, 147, 161, 0.08);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-tag {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  /* ── Grid of categories ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.25rem 4rem;
+  }
+
+  .skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .category-label {
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+
+  /* ── Chips — identical to Experience stack tags ── */
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-chips span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: rgba(77, 143, 172, 0.07);
+    border: 1px solid rgba(77, 143, 172, 0.14);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .section {
+      padding: 4rem 1.25rem;
+    }
+  }
+</style>

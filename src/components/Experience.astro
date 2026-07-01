@@ -1,0 +1,299 @@
+---
+---
+
+<section id="experience" class="section">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-tag">Experience</span>
+      <h2 class="section-title">Where I've worked</h2>
+    </header>
+
+    <!-- ── Management Solutions ─────────────────────── -->
+    <article class="exp-card" data-reveal>
+      <div class="exp-top">
+        <div class="exp-title-block">
+          <h3 class="exp-role">Data Science Consultant</h3>
+          <span class="exp-company">Management Solutions</span>
+        </div>
+        <span class="exp-date">Sept 2025 — Present</span>
+      </div>
+
+      <p class="exp-practice">
+        Financial &amp; Credit Risk Consulting practice — risk analytics, data
+        migration, and regulatory transformation for Tier-1 European banks.
+      </p>
+
+      <div class="exp-projects">
+        <div class="exp-project">
+          <span class="project-label">Regulatory compliance</span>
+          <p class="project-desc">
+            Building RDA (Risk Data Aggregation) artifacts and AI agents to
+            automate regulatory data validation and reporting for a major
+            European bank.
+          </p>
+        </div>
+
+        <div class="exp-project">
+          <span class="project-label">Risk reporting</span>
+          <p class="project-desc">
+            Owned end-to-end design of a Power BI risk analytics solution for a
+            leading European banking group — partnering with business analysts to
+            define requirements, sourcing data from Databricks, and building ETL
+            processes (SQL, PySpark) to integrate multiple financial sources into
+            a unified, governed data model with automated KPI calculations.
+          </p>
+        </div>
+
+        <div class="exp-project">
+          <span class="project-label">Migration &amp; transformation</span>
+          <p class="project-desc">
+            Supported PMO for a large-scale data migration programme in the
+            financial services sector — tracking milestones, dependencies, and
+            risk across multi-team workstreams, and acting as functional liaison
+            between business stakeholders and IT development teams.
+          </p>
+        </div>
+      </div>
+
+      <div class="exp-stack">
+        <span>Power BI</span>
+        <span>PySpark</span>
+        <span>Databricks</span>
+        <span>SQL</span>
+        <span>Python</span>
+      </div>
+    </article>
+
+    <!-- ── Unicampus ─────────────────────────────────── -->
+    <article class="exp-card exp-card--minor" data-reveal>
+      <div class="exp-top">
+        <div class="exp-title-block">
+          <h3 class="exp-role">Sales Director</h3>
+          <span class="exp-company">Unicampus</span>
+        </div>
+        <span class="exp-date">Sep 2021 – Sep 2025</span>
+      </div>
+
+      <p class="exp-single">
+        Led and managed a 10-person sales team in Madrid, driving customer
+        engagement and retention over four years while completing undergraduate
+        studies.
+      </p>
+
+      <div class="exp-stack">
+        <span>Leadership</span>
+        <span>Team Management</span>
+        <span>Sales</span>
+        <span>Customer Retention</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: 6rem 1.5rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── Section header ── */
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-tag {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  /* ── Card base ── */
+  .exp-card {
+    background: var(--bg-surface);
+    border: 1px solid rgba(77, 143, 172, 0.1);
+    border-radius: 8px;
+    padding: 2rem 2.25rem 1.75rem;
+    /* reveal + hover share the same transition declaration */
+    transition:
+      opacity 450ms ease-out,
+      transform 450ms ease-out,
+      border-color 200ms ease-out,
+      box-shadow 200ms ease-out;
+  }
+
+  .exp-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(77, 143, 172, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .exp-card + .exp-card {
+    margin-top: 1.5rem;
+  }
+
+  .exp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .exp-role {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-company {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .exp-date {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.25rem;
+  }
+
+  /* ── Practice tagline ── */
+  .exp-practice {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(139, 147, 161, 0.1);
+  }
+
+  /* ── Project sub-blocks ── */
+  .exp-projects {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .exp-project {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    padding: 1.125rem 0;
+  }
+
+  .exp-project + .exp-project {
+    border-top: 1px solid rgba(139, 147, 161, 0.08);
+  }
+
+  .project-label {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .project-desc {
+    display: grid;
+    grid-template-columns: 1.1rem 1fr;
+    font-size: 0.925rem;
+    line-height: 1.72;
+    color: var(--text-secondary);
+  }
+
+  .project-desc::before {
+    content: "—";
+    color: var(--accent);
+    opacity: 0.6;
+    font-size: 0.85rem;
+    padding-top: 0.1em;
+  }
+
+  /* ── Single-line description (Unicampus) ── */
+  .exp-single {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+  }
+
+  /* ── Minor card modifier ── */
+  .exp-card--minor {
+    border-color: rgba(139, 147, 161, 0.1);
+    padding: 1.5rem 2rem 1.25rem;
+  }
+
+  .exp-card--minor .exp-role {
+    font-size: 1rem;
+  }
+
+  .exp-card--minor .exp-company {
+    font-size: 0.875rem;
+  }
+
+  .exp-card--minor .exp-top {
+    margin-bottom: 0.875rem;
+  }
+
+  /* ── Stack tags ── */
+  .exp-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(139, 147, 161, 0.1);
+  }
+
+  .exp-stack span {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: rgba(77, 143, 172, 0.07);
+    border: 1px solid rgba(77, 143, 172, 0.14);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    .section {
+      padding: 4rem 1.25rem;
+    }
+
+    .exp-card {
+      padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .exp-card--minor {
+      padding: 1.25rem 1.25rem 1rem;
+    }
+
+    .exp-top {
+      flex-direction: column;
+      gap: 0.375rem;
+    }
+  }
+</style>
