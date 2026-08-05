@@ -75,11 +75,15 @@
     font-weight: 400;
     color: var(--text-secondary);
     letter-spacing: 0.01em;
-    transition: color 0.18s ease;
+    transition: color 200ms ease;
   }
 
   .nav-links a:hover {
     color: var(--text-primary);
+  }
+
+  .nav-links a.active {
+    color: var(--accent);
   }
 
   .nav-cta {
@@ -132,5 +136,50 @@
     };
     window.addEventListener('scroll', update, { passive: true });
     update();
+  }
+
+  const navLinks = new Map();
+  document.querySelectorAll('.nav-links a[href^="#"]').forEach((link) => {
+    const id = link.getAttribute('href')?.slice(1);
+    if (id) navLinks.set(id, link);
+  });
+
+  const visibleAreas = new Map();
+
+  const setActiveLink = () => {
+    let activeId = null;
+    let maxArea = 0;
+    visibleAreas.forEach((area, id) => {
+      if (area > maxArea) {
+        maxArea = area;
+        activeId = id;
+      }
+    });
+
+    navLinks.forEach((link, id) => {
+      link.classList.toggle('active', id === activeId);
+    });
+  };
+
+  if (navLinks.size && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.id;
+          if (entry.isIntersecting) {
+            visibleAreas.set(id, entry.intersectionRect.width * entry.intersectionRect.height);
+          } else {
+            visibleAreas.delete(id);
+          }
+        });
+        setActiveLink();
+      },
+      { threshold: 0.3 }
+    );
+
+    navLinks.forEach((_, id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
   }
 </script>

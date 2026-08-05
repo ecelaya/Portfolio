@@ -1,22 +1,25 @@
 ---
 const certs = [
   {
+    name: "Snowflake University Platform Skills Badge",
+    issuer: "Snowflake",
+    date: "Aug 2026",
+    badge: null,
+    url: "https://achieve.snowflake.com/d2b1ec21-b8bc-472d-8a32-928ec7586802#acc.t26TgFRY",
+  },
+  {
     name: "Microsoft Power BI Data Analyst",
     issuer: "Microsoft",
     date: "Dec 2025",
     badge: null,
-  },
-  {
-    name: "Advanced Google Analytics",
-    issuer: "Google Analytics by Liontech",
-    date: "Mar 2024",
-    badge: null,
+    url: "https://coursera.org/share/de38dd905f13b17474d2c7a6a55127d9",
   },
   {
     name: "IELTS (C1 Advanced)",
     issuer: "British Council",
     date: "Sep 2023",
-    badge: "Score 8 / 9",
+    badge: null,
+    downloadUrl: "/IELTS_Certificate_Eloy_Celaya.pdf",
   },
 ];
 ---
@@ -36,6 +39,29 @@ const certs = [
             <div class="cert-meta">
               <span class="cert-issuer">{cert.issuer}</span>
               {cert.badge && <span class="cert-badge">{cert.badge}</span>}
+              {cert.url && (
+                <a
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-action"
+                  aria-label={`View ${cert.name} certificate (opens in new tab)`}
+                >
+                  View Certificate
+                  <span class="cert-action-icon" aria-hidden="true">↗</span>
+                </a>
+              )}
+              {cert.downloadUrl && (
+                <a
+                  href={cert.downloadUrl}
+                  download
+                  class="cert-action"
+                  aria-label={`Download ${cert.name} certificate (PDF)`}
+                >
+                  Download Certificate
+                  <span class="cert-action-icon" aria-hidden="true">↓</span>
+                </a>
+              )}
             </div>
           </div>
           <span class="cert-date">{cert.date}</span>
@@ -130,6 +156,32 @@ const certs = [
     border: 1px solid rgba(77, 143, 172, 0.22);
     padding: 0.18rem 0.55rem;
     border-radius: 3px;
+  }
+
+  .cert-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(77, 143, 172, 0.08);
+    border: 1px solid rgba(77, 143, 172, 0.22);
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+    transition:
+      background 0.18s ease,
+      border-color 0.18s ease;
+  }
+
+  .cert-action:hover {
+    background: rgba(77, 143, 172, 0.16);
+    border-color: var(--accent);
+  }
+
+  .cert-action-icon {
+    font-size: 1em;
+    line-height: 1;
   }
 
   .cert-date {
