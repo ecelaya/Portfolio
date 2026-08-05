@@ -2,7 +2,16 @@
 const categories = [
   {
     label: "Languages & Programming",
-    skills: ["Python", "SQL", "R"],
+    skills: [
+      { name: "Python", detail: "pandas · scikit-learn · XGBoost · statsmodels" },
+      "SQL",
+      "R",
+      "SAS",
+    ],
+  },
+  {
+    label: "Databases",
+    skills: ["MySQL", "MongoDB"],
   },
   {
     label: "Data Engineering",
@@ -10,15 +19,11 @@ const categories = [
   },
   {
     label: "Reporting & BI",
-    skills: ["Power BI", "Tableau"],
+    skills: ["Power BI", "Tableau", "Excel"],
   },
   {
-    label: "ML & Statistics",
-    skills: ["Machine Learning", "Regression", "Classification", "Clustering"],
-  },
-  {
-    label: "Tools",
-    skills: ["Git", "Excel"],
+    label: "Version Control",
+    skills: ["Git"],
   },
   {
     label: "Spoken Languages",
@@ -39,7 +44,16 @@ const categories = [
         <div class="skill-category" data-reveal>
           <span class="category-label">{cat.label}</span>
           <div class="skill-chips">
-            {cat.skills.map((s) => <span>{s}</span>)}
+            {cat.skills.map((s) =>
+              typeof s === "string" ? (
+                <span class="skill-chip">{s}</span>
+              ) : (
+                <span class="skill-chip skill-chip--detailed">
+                  <span class="chip-name">{s.name}</span>
+                  <span class="chip-detail">{s.detail}</span>
+                </span>
+              )
+            )}
           </div>
         </div>
       ))}
@@ -101,22 +115,45 @@ const categories = [
     color: var(--text-secondary);
   }
 
-  /* ── Chips — identical to Experience stack tags ── */
+  /* ── Chips ── */
   .skill-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    align-items: flex-start;
+    gap: 0.625rem;
   }
 
-  .skill-chips span {
+  .skill-chip {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
     background: rgba(77, 143, 172, 0.07);
     border: 1px solid rgba(77, 143, 172, 0.14);
-    padding: 0.2rem 0.6rem;
-    border-radius: 3px;
+    padding: 0.45rem 0.9rem;
+    border-radius: 4px;
     letter-spacing: 0.03em;
+  }
+
+  /* ── Python chip: name + library detail as one unit ── */
+  .skill-chip--detailed {
+    flex-basis: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.4rem 0.9rem 0.5rem;
+  }
+
+  .chip-name {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .chip-detail {
+    font-size: 0.66rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    letter-spacing: 0.02em;
   }
 
   @media (max-width: 640px) {

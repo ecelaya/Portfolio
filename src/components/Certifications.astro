@@ -19,7 +19,7 @@ const certs = [
     issuer: "British Council",
     date: "Sep 2023",
     badge: null,
-    downloadUrl: "/IELTS_Certificate_Eloy_Celaya.pdf",
+    url: "/IELTS_Certificate_Eloy_Celaya.pdf",
   },
 ];
 ---
@@ -49,17 +49,6 @@ const certs = [
                 >
                   View Certificate
                   <span class="cert-action-icon" aria-hidden="true">↗</span>
-                </a>
-              )}
-              {cert.downloadUrl && (
-                <a
-                  href={cert.downloadUrl}
-                  download
-                  class="cert-action"
-                  aria-label={`Download ${cert.name} certificate (PDF)`}
-                >
-                  Download Certificate
-                  <span class="cert-action-icon" aria-hidden="true">↓</span>
                 </a>
               )}
             </div>
