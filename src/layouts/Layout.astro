@@ -1,6 +1,8 @@
 ---
 import '../styles/global.css';
 import Nav from '../components/Nav.astro';
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title: string;
@@ -67,6 +69,8 @@ const personSchema = {
   <body>
     <Nav />
     <slot />
+    <Analytics />
+    <SpeedInsights />
   </body>
 
   <script>
