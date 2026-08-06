@@ -9,8 +9,35 @@ interface Props {
 
 const {
   title,
-  description = 'Data scientist bridging risk consulting and applied ML.',
+  description = 'Data science consultant at Management Solutions building AI-driven risk analytics for European banks. MSc in Big Data & AI (UCM) and Business Consulting (ICADE). Portfolio of ML, statistical modelling and data engineering projects.',
 } = Astro.props;
+
+const siteUrl = 'https://www.ecelaya.com';
+const ogImage = `${siteUrl}/og-image.png`;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Eloy Celaya López',
+  url: siteUrl,
+  jobTitle: 'Data Science Consultant',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Management Solutions',
+  },
+  alumniOf: [
+    { '@type': 'Organization', name: 'Universidad Carlos III de Madrid' },
+    { '@type': 'Organization', name: 'Universidad Complutense de Madrid' },
+  ],
+  knowsAbout: [
+    'Data Science',
+    'Machine Learning',
+    'Risk Analytics',
+    'Python',
+    'Power BI',
+    'PySpark',
+  ],
+};
 ---
 
 <!doctype html>
@@ -23,6 +50,19 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} is:inline />
   </head>
   <body>
     <Nav />
